@@ -1,0 +1,144 @@
+ {%  extends 'base_template.html' %}
+
+
+{% block content %}
+        <section class="contact-us-promo pt-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card single-promo-card single-promo-hover text-center">
+                            <div class="card-body py-5">
+                                <div class="pb-2">
+                                    <span class="ti-mobile icon-sm color-primary"></span>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Notre contact</h5>
+                                    <p class="text-muted mb-0">+229 62037761</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card single-promo-card single-promo-hover text-center">
+                            <div class="card-body py-5">
+                                <div class="pb-2">
+                                    <span class="ti-location-pin icon-sm color-primary"></span>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">visitez-nous</h5>
+                                    <p class="text-muted mb-0">Rue 1010 Abomey-calavi</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card single-promo-card single-promo-hover text-center">
+                            <div class="card-body py-5">
+                                <div class="pb-2">
+                                    <span class="ti-email icon-sm color-primary"></span>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Par mail</h5>
+                                    <p class="text-muted mb-0">help@yourdomain.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-sm-6">
+                        <div class="card single-promo-card single-promo-hover text-center">
+                            <div class="card-body py-5">
+                                <div class="pb-2">
+                                    <span class="ti-headphone-alt icon-sm color-primary"></span>
+                                </div>
+                                <div>
+                                    <h5 class="mb-0">Support</h5>
+                                    <p class="text-muted mb-0">Discussion ouvert 5j/7</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--contact us promo-section end-->
+        <!--contact us promo-section end-->
+
+        <!--contact us section start-->
+
+
+
+
+        {% if messages %}
+    <div class="container">
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}
+
+
+        <section class="contact-us-section ptb-100">
+            <div class="container">
+                <div class="row justify-content-around">
+                    <div class="col-12 px-5 pb-3 message-box d-none">
+                        <div class="alert alert-danger"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-us-form gray-light-bg rounded p-5">
+                            <h4>contactez-nous</h4>
+                            <form action="{% url 'contact' %}" method="POST" id="contactForm" class="contact-us-form mt-3" novalidate="novalidate">
+                                {% csrf_token %}
+                                <input type="hidden" name="csrfToken" id="csrfToken" value="" />
+                                <div class="form-row">
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" name="name" id="name" placeholder="Votre nom complet" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control" name="email" id="email" placeholder="Votre email" required="required">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <textarea name="message" id="message" class="form-control" rows="7" cols="25" placeholder="Message"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 mt-3">
+                                        <button type="submit" class="btn primary-solid-btn" id="btnContactUs">
+                                           Envoyez votre message
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="contact-us-content">
+                            <h2>Vous voulez travailler avec nous ?</h2>
+                            <p class="lead">Postuler en Cliquant sur le lien ci-dessous</p>
+
+                            <a href="{% url 'contact_offre' %}" class="btn outline-btn align-items-center">J'envoie mon dossier <span class="ti-arrow-right pl-2"></span></a>
+
+                            <hr class="my-5">
+
+                            <h5>Notre Direction</h5>
+                            <address>
+                               lot 162 Gbenonkpo <br>
+                                Cotonou Bénin
+                            </address>
+                            <br>
+                            <span>Téléphone: +229 62037761</span> <br>
+                            <span>Email: <a href="mailto:email@yourdomain.com" class="link-color">email@beka.com</a></span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+ {%  endblock %}

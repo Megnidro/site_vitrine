@@ -1,0 +1,41 @@
+{% extends 'base_template.html' %}
+
+{% block content %}
+
+
+        <!--blog section start-->
+        <div class="module ptb-100">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-8">
+                        <!-- Post-->
+                        <article class="post">
+                            <div class="post-wrapper">
+                                <div class="post-header">
+                                    <h1 class="post-title">{{ post.titre }}</h1>
+                                                                <hr>
+
+                                    <ul class="post-meta">
+                                        <li>{{ post.date_publication }}</li>
+                                        <li>In <a href="#">{{ post.auteur }}</a>, <a href="#">{{ post.category }}</a></li>
+                                        <li><a href="#">{{ post.views }}</a></li>
+                                    </ul>
+                                </div>
+                                <div class="post-content">
+                                    <p>{{ post.description|safe}}</p>
+                                   </div>
+                                <p>  <strong><span> <a href="{% url 'contact_offre' %}"> Postuler en cliquant ici</a></span></strong> </p>
+                            </div>
+                        </article>
+                        <!-- Post end-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--blog section end-->
+
+
+
+{% endblock %}
+
+

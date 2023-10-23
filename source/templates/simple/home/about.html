@@ -1,0 +1,254 @@
+
+
+ {%  extends 'base_template.html' %}
+
+
+{% block content %}
+
+        <!--feature section tab style start-->
+        <section class="feature-tab-section ptb-100">
+            <div class="container">
+                <div class="row">
+                    {% for published_article in published_articles %}
+
+                    <div class="col-xl-4 col-lg-3 col-12 order-lg-last align-self-center">
+                        <div class="image-box fadein text-xl-right text-center">
+                            <img src="{{ published_article.image.url }}" alt="" class="img-fluid" />
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-9 col-12 order-xl-first">
+                        <h2>{{ published_article.title }}</h2>
+                        <hr>
+                        <p>{{ published_article.description|safe}}</p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!--feature section tab style end-->
+
+
+
+          <!--why choose us section start-->
+<section class="why-choose-us ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9 col-lg-8">
+                <div class="section-heading mb-5">
+                    <h3>Nos secteurs d'activités</h3>
+                    <p class="lead">Notre secteur d'activité  s'étend du  domaine du bâtiment et des infrastructures, chacun bénéficiant de notre engagement envers l'excellence et l'innovation.
+</p>
+                </div>
+            </div>
+        </div>
+
+
+<div class="row">
+    <div class="col-md-4 col-lg-4">
+        <a href="#">
+            <div class="single-promo-2 custom-shadow single-promo-hover rounded-custom text-center white-bg p-5 h-100">
+                <div class="circle-icon">
+                    <span class="fas fa-hard-hat text-white"></span> <!-- Icône de casque de chantier -->
+                </div>
+                <h5>Assistance maître d’ouvrage</h5>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 col-lg-4">
+        <a href="#">
+            <div class="single-promo-2 custom-shadow single-promo-hover rounded-custom text-center white-bg p-5 h-100">
+                <div class="circle-icon">
+                    <span class="fas fa-landmark  text-white"></span>
+                </div>
+                <h5>Structures</h5>
+            </div>
+        </a>
+    </div>
+    <div class="col-md-4 col-lg-4">
+        <a href="#">
+            <div class="single-promo-2 custom-shadow single-promo-hover rounded-custom text-center white-bg p-5 h-100">
+                <div class="circle-icon">
+                    <span class="fas fa-fire text-white"></span> <!-- Icône d'extincteur -->
+                </div>
+                <h5>Coordination des systèmes de sécurité incendie</h5>
+            </div>
+        </a>
+    </div>
+</div>
+        <br><br>
+
+        <div class="row">
+            <div class="col-md-4 col-lg-4">
+                <a href="#">
+                    <div class="single-promo-2 custom-shadow single-promo-hover rounded-custom text-center white-bg p-5 h-100">
+                        <div class="circle-icon">
+                            <span class="fas fa-building text-white"></span>
+                        </div>
+                        <h5>Clos et ouverts</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <a href="#">
+                    <div class="single-promo-2 custom-shadow single-promo-hover rounded-custom text-center white-bg p-5 h-100">
+                        <div class="circle-icon">
+                            <span class="fas fa-wheelchair text-white"></span>
+                        </div>
+                        <h5>Accessibilité handicapés</h5>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4 col-lg-4">
+                <a href="#">
+                    <div class="single-promo-2 custom-shadow single-promo-hover rounded-custom text-center white-bg p-5 h-100">
+                        <div class="circle-icon">
+                            <span class="fas fa-fire-extinguisher text-white"></span>
+                        </div>
+                        <h5>Sécurité incendie</h5>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+        <!--why choose us section end-->
+
+
+
+
+
+
+        <!--meet our team carousel style start-->
+        <section class="our-team-section ptb-100">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8 col-lg-8">
+                        <div class="section-heading text-center mb-5">
+                            <h2>Une équipe professionnelle engagée à vous servir</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <div class="owl-carousel owl-theme team-member-carousel custom-dot dot-bottom-center">
+                                                {% for team in teams %}
+
+                            <div class="item">
+                                <div class="staff-member">
+                                    <div class="card text-center">
+                                        <img src="{{ team.image.url }}" alt="team image" class="card-img-top">
+                                        <div class="card-body">
+                                            <h5 class="teacher mb-0">{{ team.name }}</h5>
+                                            <span>{{ team.profession }}</span>
+
+                                        </div>
+                                    </div>
+                                    <div class="overlay d-flex align-items-center justify-content-center">
+                                        <div class="overlay-inner">
+                                            <p class="teacher-quote">{{ team.bio }} </p><a href="#" class="teacher-name">
+                                                <h5 class="mb-0 teacher text-white">{{ team.name }}</h5>
+                                            </a>
+                                            <span class="teacher-field text-white">{{ team.profession }}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                                                {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--meet our team carousel style end-->
+
+        <!--testimonial and review section start-->
+        <section class="client-review-section ptb-100 gray-light-bg">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 col-lg-8">
+                        <div class="section-heading text-center mb-5">
+                            <h2>Ils sont satisfait de nos prestations</h2>
+                            <p class="lead">À BEKA INGENIERIE, la satisfaction de nos clients est au cœur de notre démarche.
+
+</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for temoin in temoins %}
+                    <div class="col-md-6 col-lg-4">
+                        <div class="single-testimonial white-bg shadow-sm rounded p-5">
+                            <ul class="list-inline ratting-list mb-2">
+                                <li class="list-inline-item"><span class="fas fa-star"></span></li>
+                                <li class="list-inline-item"><span class="fas fa-star"></span></li>
+                                <li class="list-inline-item"><span class="fas fa-star"></span></li>
+                                <li class="list-inline-item"><span class="fas fa-star"></span></li>
+                                <li class="list-inline-item"><span class="fas fa-star"></span></li>
+                            </ul>
+                            <div class="ratting-content">
+                                <h5>{{ temoin.title }}</h5>
+                                <p>{{ temoin.description|safe }}</p>
+                            </div>
+                            <div class="ratting-author mt-3">
+                                <h6>{{ temoin.name }}</h6>
+                                <small class="text-right">{{ temoin.date }}</small>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <!--testimonial and review section end-->
+    <!--blog section end-->
+          <section class="client-section ptb-100">
+            <div class="container">
+                <!--clients logo start-->
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="section-heading text-center mb-5">
+                            <h2>Découvrez Nos Partenaires d'Excellence</h2>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="overlay-opacity-gradient"></div>
+                        <div class="owl-carousel owl-theme clients-carousel dot-indicator">
+                            <div class="item single-client">
+                                <img src="/static/assets/img/clients-logo-01.png" alt="client logo" class="img-fluid client-img">
+                            </div>
+                            <div class="item single-client">
+                                <img src="/static/assets/img/clients-logo-02.png" alt="client logo" class="img-fluid client-img">
+                            </div>
+                            <div class="item single-client">
+                                <img src="/static/assets/img/clients-logo-03.png" alt="client logo" class="img-fluid client-img">
+                            </div>
+                            <div class="item single-client">
+                                <img src="/static/assets/img/clients-logo-04.png" alt="client logo" class="img-fluid client-img">
+                            </div>
+                            <div class="item single-client">
+                                <img src="/static/assets/img/clients-logo-05.png" alt="client logo" class="img-fluid client-img">
+                            </div>
+                            <div class="item single-client">
+                                <img src="/static/assets/img/clients-logo-06.png" alt="client logo" class="img-fluid client-img">
+                            </div>
+                            <div class="item single-client">
+                                <img src="/static/assets/img/clients-logo-07.png" alt="client logo" class="img-fluid client-img">
+                            </div>
+                            <div class="item single-client">
+                                <img src="/static/assets/img/clients-logo-08.png" alt="client logo" class="img-fluid client-img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--clients logo end-->
+            </div>
+        </section>
+        <!--client section start-->
+ {% endblock %}

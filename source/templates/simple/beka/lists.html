@@ -1,0 +1,43 @@
+{%  extends 'base_template.html' %}
+
+
+{% block content %}
+
+
+          <!--blog section start-->
+        <section class="our-blog-section ptb-100 gray-light-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="section-heading mb-5">
+                            <h2>Nos Projets</h2>
+                            <hr>
+                            <p>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    {% for projet in projets %}
+                    <div class="col-md-4">
+                        <div class="single-blog-card card border-0 shadow-sm">
+                            <span class="category position-absolute badge badge-pill badge-primary"></span>
+                            <img src="{{ projet.image.url }}" class="card-img-top position-relative" alt="blog">
+                            <div class="card-body">
+                                <h3 class="h5 card-title"><a href="{% url 'services:detail' slug=projet.slug %}">{{ projet.title }}</a></h3>
+                                <a href="{% url 'services:detail' slug=projet.slug %}" class="detail-link">Lire Plus <span class="ti-arrow-right"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </section>
+        <!--blog section end-->
+
+
+
+{% endblock %}
+
